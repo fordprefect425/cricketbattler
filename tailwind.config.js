@@ -13,6 +13,10 @@ export default {
           sky: '#1A237E',
           accent: '#FFD600',
         }
+      },
+      fontFamily: {
+        heading: ['Teko', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
       }
     },
   },
