@@ -2,13 +2,15 @@ import React from 'react';
 import { useGameStore } from '../engine/store';
 import { LaneView } from './LaneView';
 import { CardView } from './CardView';
+import { RulesView } from './RulesView';
 // Removed DnD imports
-import { Gamepad2, Timer, Trophy, MousePointerClick, Play } from 'lucide-react';
+import { Gamepad2, Timer, Trophy, MousePointerClick, Play, BookOpen } from 'lucide-react';
 
 export const GameBoard: React.FC = () => {
     const { lanes, player, phase, turn, initializeGame, playCard, endTurn, winner } = useGameStore();
     // New State: Selected Card ID
     const [selectedCardId, setSelectedCardId] = React.useState<string | null>(null);
+    const [showRules, setShowRules] = React.useState(false);
 
     // Initial setup handled by loop, but we want manual start now
     // useEffect(() => { initializeGame(); }, []);
@@ -44,15 +46,27 @@ export const GameBoard: React.FC = () => {
                     <h1 className="text-6xl font-bold mb-2 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">Pitch Perfect</h1>
                     <p className="text-xl text-gray-300 mb-8 font-mono">Cricket Tactics Prototype</p>
 
-                    <button
-                        onClick={initializeGame}
-                        className="group relative px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg shadow-lg hover:shadow-blue-500/50 transition-all flex items-center gap-3 text-xl"
-                    >
-                        <Play className="fill-current group-hover:scale-110 transition-transform" />
-                        START MATCH
-                    </button>
-                    <p className="mt-4 text-xs text-gray-400">Click & Select Controls Activated</p>
+                    <div className="flex flex-col gap-3 w-full max-w-xs mx-auto">
+                        <button
+                            onClick={initializeGame}
+                            className="group relative px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg shadow-lg hover:shadow-blue-500/50 transition-all flex items-center justify-center gap-3 text-xl w-full"
+                        >
+                            <Play className="fill-current group-hover:scale-110 transition-transform" />
+                            START MATCH
+                        </button>
+
+                        <button
+                            onClick={() => setShowRules(true)}
+                            className="px-8 py-3 bg-slate-700 hover:bg-slate-600 text-gray-300 hover:text-white font-bold rounded-lg border border-slate-600 transition-all flex items-center justify-center gap-2 w-full"
+                        >
+                            <BookOpen size={20} />
+                            HOW TO PLAY
+                        </button>
+                    </div>
                 </div>
+
+                {/* Rules Overlay */}
+                {showRules && <RulesView onClose={() => setShowRules(false)} />}
             </div>
         );
     }
