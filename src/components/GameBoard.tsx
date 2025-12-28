@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useGameStore } from '../engine/store';
 import { LaneView } from './LaneView';
 import { CardView } from './CardView';
 // Removed DnD imports
-import { Gamepad2, Timer, Play, Trophy, MousePointerClick } from 'lucide-react';
+import { Gamepad2, Timer, Trophy, MousePointerClick, Play } from 'lucide-react';
 
 export const GameBoard: React.FC = () => {
     const { lanes, player, phase, turn, initializeGame, playCard, endTurn, winner } = useGameStore();
@@ -31,7 +31,7 @@ export const GameBoard: React.FC = () => {
         }
     };
 
-    const handleBackgroundClick = (e: React.MouseEvent) => {
+    const handleBackgroundClick = () => {
         // Disabled explicit deselection for stability. 
         // Click another card to switch selection.
     };

@@ -1,4 +1,4 @@
-import type { GameState, Lane, Card, PlayerState } from './types';
+import type { GameState, Lane, PlayerState } from './types';
 
 // Helper to deep clone simple data structures manually if needed, 
 // or just use structuredClone if environment supports (node 17+ or modern browser)

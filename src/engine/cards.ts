@@ -123,36 +123,9 @@ export const createCard = (templateId: string): Card => {
 };
 
 export const createDeck = (): Card[] => {
-    const deck: Card[] = [];
-
-    // High-cost cards
-    const midHighPool = [
-        'speedster', 'speedster',
-        'finisher',
-        'captain',
-        'yorker',
-        'swing_king',
-        'mystery_spinner'
-    ];
-
-    // Low-cost / Essential cards
-    const lowCostPool = [
-        'opener', 'opener',
-        'pinch_hitter', 'pinch_hitter',
-        'electric_fielder',
-        'helicopter'
-    ];
-
     // Logic: Ensure at least one Opener is at the start (index 0)
-    deck.push(createCard('opener'));
-
-    // Add rest and shuffle
-    const remainingIds = [...midHighPool, ...lowCostPool];
-    // Remove one openers worth from pool roughly (abstracted) - actually we just added specific instance.
-    // Let's just build the full random list but force specific start.
-
-    const fullRandomDeck: Card[] = [];
-    // 1 Opener (Already added?) No let's rebuild properly.
+    // Removed unused constants deck, midHighPool, lowCostPool, remainingIds, fullRandomDeck
+    // We construct the list directly below.
 
     // Correct Algorithm:
     // 1. Create list of all intended cards

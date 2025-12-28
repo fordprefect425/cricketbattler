@@ -2,7 +2,7 @@ import React from 'react';
 import type { Lane } from '../engine/types';
 import { CardView } from './CardView';
 import { clsx } from 'clsx';
-import { Trophy, ArrowDownCircle, AlertCircle } from 'lucide-react';
+import { ArrowDownCircle, AlertCircle } from 'lucide-react';
 
 interface LaneViewProps {
     lane: Lane;
